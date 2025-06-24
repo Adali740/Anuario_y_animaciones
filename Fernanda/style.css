@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url(tu-fondo.jpg); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  width: 300px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.circle {
+  width: 160px;  
+  height: 160px;
+  border-radius: 50%;
+  background-color: white; 
+  margin: 20px auto 10px auto;
+  border: 4px solid white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.circle img {
+  width: 160px;  
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.top .circle {
+  margin-top: 50px;
+}
+
+.top .circle img {
+  border-radius: 50%;
+}
+
+.body .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.body .content {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.body .content ul {
+  text-align: left;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Redes sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+.foot {
+  margin-top: 10px;
+}
+
+.foot button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.foot button a {
+  color: white;
+  text-decoration: none;
+}
+
+.foot button:hover {
+  background-color: #1e7e34;
+}
+

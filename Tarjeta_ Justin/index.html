@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> perfil personal</title>
+</head>
+<style>
+.display{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.cuadroTarjeta{
+    width: 350px;
+    height: 500px;
+    background-image: url(img/marco\ para\ carta.png);
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+    background-repeat: no-repeat;
+}
+
+.circulo{    
+    background-image:url(img/20241228_163959.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid yellow 5px;
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+    position: relative;
+    top: 60px;
+    left: 90px;
+}
+
+.personalb{
+      height: 40px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    
+    position: absolute;
+    top: 180px;
+    left: -67px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+}
+.personalb:hover{
+    background-color: crimson;
+    
+}
+
+
+
+.pasatiemposb{
+        height: 40px;
+    
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+   
+ 
+    position: absolute;
+    top: 230px;
+    left: -67px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+}
+
+.pasatiemposb:hover{
+   background-color: aqua;
+}
+
+.Gustosb{
+        height: 40px;
+    
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+   
+   
+    position: absolute;
+    top: 280px;
+    left: -67px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+}
+
+.Gustosb:hover{
+   background-color: blueviolet;
+}
+
+.fotosb{
+        height: 40px;
+    width: 250px;
+    background-color: rgb(255, 255, 255); 
+    position: absolute;
+    top: 330px;
+ left: -67px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+}
+
+.fotosb:hover{
+    background-color: fuchsia;
+  
+}
+
+#miniVentana {
+  margin-top: 10px;
+  padding: 15px;
+  width: 250px;
+  background-color: #f9f9f9;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  display: none; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#ventana1{
+    z-index: 1;
+    position: relative;
+    top: 380px;
+    left: -30px;
+    
+    border: solid rgb(255, 0, 0) 2px;
+    animation: bajar 1s ease-in-out forwards;
+    background-color: white;
+    height: 70px;
+    width: 200px;
+    display: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+@keyframes bajar{
+    from{
+        
+        height: 0px;
+    }
+    to{
+       
+        height: 200px;
+    }
+}
+
+#ventana2{
+ z-index: 1;
+    position: relative;
+    top: 380px;
+    left: -20px;
+    
+    border: solid rgb(255, 0, 0) 2px;
+    animation: bajar 1s ease-in-out forwards;
+    background-color: white;
+    height: 70px;
+    width: 150px;
+    display: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+@keyframes bajar{
+    from{
+        
+        height: 0px;
+    }
+    to{
+       
+        height: 100px;
+    }
+}
+
+#ventana3{
+     z-index: 1;
+    position: relative;
+    top: 380px;
+    left: -30px;
+   
+    border: solid rgb(255, 0, 0) 2px;
+    animation: bajar 1s ease-in-out forwards;
+    background-color: white;
+    height: 70px;
+    width: 150px;
+    display: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+@keyframes bajar{
+    from{
+        
+        height: 0px;
+    }
+    to{
+       
+        height: 100px;
+    }
+}
+
+#ventana4{
+    z-index: 1;
+    position: relative;
+   top: 380px;
+    left: -30px;
+   
+    border: solid rgb(255, 0, 0) 2px;
+    animation: bajar 1s ease-in-out forwards;
+    background-color: white;
+    height: 70px;
+    width: 150px;
+    display: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+#ventana4 a{
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: black;
+
+}
+#ventana4 a:hover{
+    font-size:35px;
+    color: blue;
+}
+
+@keyframes bajar{
+    from{
+        
+        height: 0px;
+    }
+    to{
+       
+        height: 80px;
+    }
+}
+
+
+</style>
+</head>
+<body>
+    <div class="display">
+        <div class="cuadroTarjeta">
+            <div class="cuadroinicial">
+                <div class="circulo">
+                    <div class="botones">
+                        <button onclick="toggleVentana('ventana1')" class="personalb">Informacion</button>
+                        <div class="ventana" id="ventana1">
+                            <h3>Justin Ely Acosta Fernandez<br> 18 años</br></h3>
+                        </div>
+                        <button onclick="toggleVentana('ventana2')" class="pasatiemposb">Grado carrera</button>
+                        <div class="ventana" id="ventana2">
+                            <h3>12vo Informatica <br> Seccion 2</br></h3>
+                        </div>
+                        <button onclick="toggleVentana('ventana3')" class="Gustosb">computadora</button>
+                        <div class="ventana" id="ventana3">
+                            <h3>Laptop:Lenovo Touch</h3>
+                        </div>
+                        <button onclick="toggleVentana('ventana4')" class="fotosb
+                        ">Redes Sociales</button>
+                        <div class="ventana" id="ventana4">
+                            <a href="https://www.instagram.com/jchuggho?igsh=MWE2aTlwZDgyZzhpbw==">Instagram</a>
+                            <br><a href="https://www.facebook.com/share/1MeZKoMwui/">facebook</a></br>
+                                <a href="https://wa.me/50494332413">Whatsapp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleVentana(id) {
+  const ventana = document.querySelectorAll('.ventana');
+
+  ventana.forEach(ventana =>{
+    if(ventana.id == id){
+
+       ventana.style.display = (ventana.style.display === "none" || ventana.style.display === "") ? "block" : "none";}
+       else{
+        ventana.style.display = "none";
+       }
+    
+  }
+);  
+}
+
+
+    </script>
+</body>
+</html>

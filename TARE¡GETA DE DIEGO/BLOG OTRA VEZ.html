@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog Informática</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url("img/programacion.jpg") no-repeat center center fixed;
+
+    background-size: cover;
+    overflow-x: hidden;
+    color: #111;
+  }
+  header {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    margin: 40px 0 20px 0;
+    color: #222;
+    text-shadow: 2px 2px 6px rgba(255, 215, 0, 0.8);
+    user-select: none;
+  }
+  .botones-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px 0px;
+    display: flex;
+    gap: 10px;
+    z-index: 1100;
+    user-select: none;
+    flex-wrap: wrap;
+    max-width: 515px;
+  }
+  .botones-container button {
+    display: flex;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    background: rgba(236, 230, 230, 0.897);
+    border: 2px solid #dd0e0e;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    min-width: 80px;
+  }
+  .botones-container button:hover {
+    background: #f9e79f;
+    color: #b9770e;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .phone-wrapper {
+    width: 360px;
+    height: 640px;
+    background: white;
+    border : 6px solid #222;
+    border-radius: 40px;
+    box-shadow:
+      0 25px 15px rgba(0,0,0,0.2),
+      0 45px 40px rgba(0,0,0,0.25);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+  .phone-content {
+    height: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #222;
+  }
+  .phone-content img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 14px;
+    user-select: none;
+  }
+  .phone-content iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  .caption {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+  .circulo {
+    position: fixed;
+    top: 50%;
+    right: 27Px;
+    transform: translateY(-50%);
+    width: 130px;
+    height: 130px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+    user-select: none;
+  }
+  .circulo .arriba,
+  .circulo .abajo {
+    font-weight: 900;
+    font-style: italic;
+    color: #b8860b;
+    user-select: none;
+  }
+  .circulo .arriba {
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+  }
+  .circulo .abajo {
+    font-size: 1.6rem;
+    margin-top: 6px;
+    letter-spacing: 2px;
+  }
+  .secciones-externas-container {
+    max-width: 960px;
+    margin: 30px auto 50px;
+    padding: 20px;
+    background: rgba(255 255 255 / 0.95);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: none;
+    user-select: none;
+  }
+  .secciones-externas-container.active {
+    display: block;
+  }
+  .secciones-externas-container h2 {
+    margin-bottom: 15px;
+    color: #b8860b;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 2rem;
+  }
+  .secciones-externas-container p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  .miniatura-imagen,
+  .miniatura-video {
+    width: 100%;
+    max-height: 240px;
+    margin: 10px 0;
+    border-radius: 8px;
+    object-fit: contain;
+    border: 2px solid #b8860b;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .miniatura-imagen:hover,
+  .miniatura-video:hover {
+    transform: scale(1.02);
+    border-color: #f1c40f;
+  }
+  .contenedor-miniaturas {
+    display: block;
+  }
+  
+  .phone-content::-webkit-scrollbar {
+    width: 8px;
+  }
+  .phone-content::-webkit-scrollbar-thumb {
+    background-color: #b8860b;
+    border-radius: 10px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1200;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    max-height: 80vh;
+    border-radius: 20px;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 0 0 30px rgba(184,134,11,0.7);
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #b8860b;
+    cursor: pointer;
+    user-select: none;
+  }
+  @media (max-width: 480px) {
+    .phone-wrapper {
+      width: 90vw;
+      height: 70vh;
+      border-width: 4px;
+      border-radius: 30px;
+    }
+    .circulo {
+      width: 100px;
+      height: 100px;
+    }
+    .botones-container {
+      max-width: 280px;
+      gap: 6px;
+    }
+    .botones-container button {
+      padding: 6px 10px;
+      font-size: 0.7rem;
+      min-width: 60px;
+    }
+    .secciones-externas-container {
+      margin: 20px 10px 40px;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+    .modal-content {
+      max-width: 90vw;
+      max-height: 75vh;
+      padding: 15px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>INFORMÁTICA - SECCIÓN 2</header>
+
+
+
+<div class="container">
+  <div class="phone-wrapper" id="celular" onclick="abrirModal()">
+    <div class="phone-content" id="contenidoCelular">
+        <div class="caption">Hola mi nombre es diego samuel mateo lopez tengo 17 años naci el el 8 de septiembre 
+                  del 2008  estoy estuadiando Informática entreno futbol
+                  en mi tiempo libre me gusta el color negro mido 1.65 y me gusta estudiar ingles YO SOY DIEGO.</div>
+            <i class="fab fa-facebook" style="color: #1877F2; font-size: 50px;"></i>
+
+            <i class="fab fa-instagram" style="color: #C13584; font-size: 50px;"></i>
+
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+            
+      <img src="img/whasap mia.jpg" alt="Imagen blog" />
+      
+
+<div class="circulo">
+  <div class="arriba"><i>PROMOCIÓN</div></i>
+  <div class="abajo"><i>2025</div></i>
+</div>
+
+<div class="secciones-externas-container" id="seccionesExternas">
+  <h2 id="tituloSeccion"></h2>
+  <div id="contenidoSeccion"></div>
+</div>
+
+
+<div id="modalCelular" class="modal" onclick="cerrarModal(event)">
+  <div class="modal-content" id="modalContent">
+    <span class="modal-close" onclick="cerrarModal(event)">&times;</span>
+    
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('modalCelular');
+  const modalContent = document.getElementById('modalContent');
+  const seccionesExternas = document.getElementById('seccionesExternas');
+  const tituloSeccion = document.getElementById('tituloSeccion');
+  const contenidoSeccion = document.getElementById('contenidoSeccion');
+  const contenidoCelular = document.getElementById('contenidoCelular');
+
+  function abrirModal() {
+    
+    const clon = contenidoCelular.cloneNode(true);
+    
+    while(modalContent.childNodes.length > 1) {
+      modalContent.removeChild(modalContent.lastChild);
+    }
+    modalContent.appendChild(clon);
+    modal.style.display = 'flex';
+    seccionesExternas.classList.remove('active');
+  }
+
+  function cerrarModal(e) {
+    if(e.target === modal || e.target.classList.contains('modal-close')) {
+      modal.style.display = 'none';
+      
+      while(modalContent.childNodes.length > 1) {
+        modalContent.removeChild(modalContent.lastChild);
+      }
+    }
+  }
+
+  function mostrarSeccion(seccion) {
+    seccionesExternas.classList.add('active');
+    modal.style.display = 'none';
+
+    let contenido = '';
+    switch(seccion) {
+      case 'inicio':
+        tituloSeccion.textContent = 'galeria';
+        contenido = `
+          <p>JAJAJAJAJAJAJA.</p>
+          <div>
+            <img class="miniatura-imagen" src="https://via.placeholder.com/600x340?text=Imagen+1" alt="Imagen 1"/>
+            <video class="miniatura-video" controls>
+              <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+              Tu navegador no soporta video.
+            </video>
+          </div>
+        `;
+        break;
+      case 'proyectos':
+        tituloSeccion.textContent = 'SOBRE EL AULA';
+        contenido = `
+          <p>DOOGGOGO.</p>
+          <div>
+            <img class="miniatura-imagen" src="https://via.placeholder.com/600x340?text=Proyecto+1" alt="Proyecto 1"/>
+            <video class="miniatura-video" controls>
+              <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4" />
+              Tu navegador no soporta video.
+            </video>
+          </div>
+        `;
+        break;
+      case 'sobre mi':
+        tituloSeccion.textContent = 'xd jjaa';
+        contenido = `oki oki.</p>`;
+        break;
+      case 'contacto':
+        tituloSeccion.textContent = 'estudiosos';
+        contenido = `<p> ok bay</p>`;
+        break;
+      default:
+        tituloSeccion.textContent = '';
+        contenido = '';
+        seccionesExternas.classList.remove('active');
+    }
+    contenidoSeccion.innerHTML = contenido;
+  }
+</script>
+
+</body>
+</html>

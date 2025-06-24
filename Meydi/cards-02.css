@@ -1,0 +1,103 @@
+
+        .card {
+            background-color: rgb(243, 218, 187);
+            font-family: Arial, Helvetica, sans-serif;
+            display: grid;
+            grid-template-rows: 180px auto auto;
+            border: 1px solid #0e0901;
+            box-shadow: 0 0 8px 3px #1601019e;
+            border-radius: 20px 20px 0 0;
+            overflow: hidden;
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: -6px 3px 5px 3px #0a00009e;
+            transform: translate(24%, 2%);
+        }
+
+        .top {
+            background-image: url("imagen4.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position-y: -75px;
+            background-color: rgb(9, 71, 3);
+            position: relative;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 100%;
+            box-shadow: 0 0 8px 3px #0700009e;
+            overflow: hidden;
+            width: 120px;
+            height: 120px;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+        }
+
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .body {
+            padding: 10px;
+        }
+
+        .title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            font-family: Georgia, serif;
+        }
+
+        .content {
+            font-family: 'Britannic Bold', sans-serif;
+            text-align: center;
+            padding: 4px 10px;
+        }
+
+        ul {
+            list-style: circle;
+            padding-left: 20px;
+            text-align: left;
+        }
+
+        li {
+            color: black;
+        }
+
+        .foot {
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        button {
+            font-family: 'Georgia Pro Black', Georgia, serif;
+            background-color: rgb(9, 71, 3);
+            border: 0;
+            border-radius: 20px;
+            width: 45%;
+            height: 70px;
+            margin: 6px;
+            cursor: pointer;
+            transition: box-shadow 0.3s;
+        }
+
+        button:hover {
+            box-shadow: 0 0 5px 4px rgb(15, 250, 15);
+        }
+
+        a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        button:hover a {
+            color: black;
+        }

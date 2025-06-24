@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tarjeta de Presentacion</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        *{
+  color: #eee;
+}
+.divhola{
+  background-color:gray;
+  padding:1px;
+  border-radius: 10px;
+}
+body {
+            background-color: transparent;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .tarjeta {
+          border: 1px solid black;
+            width: 300px;
+            height: 550px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            overflow: hidden;
+        }
+
+        .header {
+            height: 20%;
+            background-color: #4a90e2;
+            color: white;
+            
+            text-align: center;
+        }
+
+        .header h2 {
+            margin: 0;
+        }
+
+        .main {
+          height: 60%;
+          border: 1px solid black;
+          background-image: url('imagenes/Bosque.jpg');
+            padding: 10px;
+            background-size: cover;
+        }
+       .div_img {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.foto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+        .footer {
+            background-color: #eee;
+            border: 1px solid #eee;
+            text-align: center;
+            
+            height: 20%;
+        }
+        figure{
+          margin-bottom: 0;
+          padding: 0;
+        }
+          #pa{
+            color: black;
+          }
+          #parrafo{
+            margin-top: 30px;
+          }
+        .footer a {
+            text-decoration: none;
+            
+            color: #4a90e2;
+        }
+        </style>
+    </head>
+    <body>
+   <div class="tarjeta">
+        <div class="header">
+            <h2>Presentación</h2>
+            <div class="div_img">
+            <img class="foto" src="imagenes\Darwin.jpg" alt="Foto de ADALI">
+          </div>
+        </div>
+        <div class="main">
+          <figure>
+            <div class="divhola">
+            <p id="parrafo">Darwin Adali Garcia Gomez</p>
+            <p>Estudió informatica y me alegra compartir mi about.</p>
+
+            <h4>Logros y Habilidades</h4>
+</div>
+            <ol>
+                <li>Graduada con honores</li>
+                <li>Premio de innovación 2023</li>
+                <li>Photoshop / Illustrator</li>
+                <li>Diseño web</li>
+            </ol>
+        
+            </figure>
+        </div>
+        <div class="footer">
+            <p id="pa">Contacto: adali@email.com</p>
+            <a href="#">Facebook</a> |
+            <a href="#">Instagram</a> |
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+    </body>
+</html>

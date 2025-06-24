@@ -1,0 +1,184 @@
+<style>
+.display{
+    display: flex;
+    justify-content: center;
+}
+.window {
+    font-family: Arial;
+    position: absolute;
+    width: 320px;
+    border: 1px solid #ffffff;
+    background-color: #f0f0f0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 300px;
+    min-height: 400px;
+    z-index: 10;
+    border-radius: 10px;
+}
+
+.title-bar {
+    background: linear-gradient(to right, #823c3c, #b8a486);
+    color: white;
+    text-shadow: 1px 1px 3px #00000030;
+    padding: 4px 6px;
+    font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 18px;
+    cursor: default;
+    user-select: none;
+}
+
+.title-text {
+    flex-grow: 1;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-control {
+    width: 16px;
+    height: 14px;
+    border: 1px solid #ffffff;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: black;
+    cursor: default;
+    line-height: 1;
+}
+
+.window-control:hover {
+    background: #e0e0e0;
+}
+
+.window-control.close {
+    background: #FF0000;
+    color: white;
+    border-color: #800000;
+}
+
+.window-control.close:hover {
+    background: #FF3030;
+}
+
+.window-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #f0f0f0;
+    border-top: none;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.circle {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #c7a384;
+    background-color: white;
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-section h2 {
+    color: #925656;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #443729;
+    margin-bottom: 15px;
+}
+
+.content ul {
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.content li {
+    margin-bottom: 5px;
+}
+
+.window-footer {
+    background-color: #e6e6e6;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #ccc;
+}
+
+.windows-button {
+    background-color: #660000;
+    color: white;
+    border: 1px solid #330000;
+    padding: 5px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'MS Sans Serif', 'Segoe UI', Tahoma, sans-serif;
+}
+
+.windows-button:hover {
+    background-color: #800000;
+}
+
+.windows-button a {
+    color: white;
+    text-decoration: none;
+}
+</style>
+<div class="display">
+    <div class="window active" style="z-index: 100; ">
+        <div class="title-bar">
+            <div class="title-text">Carlos.exe</div>
+            <div class="window-controls">
+                <div class="window-control minimize">_</div>
+                <div class="window-control maximize">□</div>
+                <div class="window-control close">X</div>
+            </div>
+        </div>
+        <div class="window-content">
+            <div class="profile-section">
+                <div class="circle">
+                    <img src="pfp-carlos.jpg" alt="Foto de Carlos Miguel" class="profile-img">
+                </div>
+            </div>
+            <div class="info-section">
+                <h2 class="profile-name">Carlos Miguel</h2>
+                <div class="content">
+                    <p class="profile-description">Estudiante de informática, entusiasta, con un enorme interés en todo lo tecnológico.</p>
+                    <ul class="profile-skills"><li>Eficiente</li><li>Preciso</li><li>Pragmático</li><li>Paciente</li></ul>
+                </div>
+            </div>
+            <div class="window-footer">
+                <button class="windows-button contact-btn">Contacto</button>
+            </div>
+        </div>
+    </div>
+</div>
