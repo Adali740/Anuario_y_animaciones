@@ -1,5 +1,8 @@
 .display{
     width: 100vw;
     display: flex;
-    
+}
+.navegar{
+       display: flex;
+       justify-content: space-between;
 }
